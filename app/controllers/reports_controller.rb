@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     @report = Report.find(params[:id])
+    @ns_id = @report.ns_id
 
     respond_to do |format|
       format.html # show.html.erb

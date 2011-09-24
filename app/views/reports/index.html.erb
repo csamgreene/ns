@@ -1,3 +1,12 @@
+<h3>
+	<script src='http://shopping.netsuite.com/app/site/query/getcustomermessage.nl?c=749423&n=1&prefixtext=Welcome%20&suffixtext=!&unrecognizedtext=Welcome%20to%20Lux+Research'></script>
+	</br>
+	Items in cart: <script src='http://shopping.netsuite.com/app/site/query/getcartitemcount.nl?c=749423&n=1'></script>
+	</br>
+	Total cost of items in cart: <script src='http://shopping.netsuite.com/app/site/query/getcarttotal.nl?c=749423&n=1'></script>
+	</br></br>
+</h3>
+
 <h1>Listing reports</h1>
 
 <table>
@@ -5,6 +14,7 @@
     <th>Title</th>
     <th>Excerpt</th>
     <th>Price</th>
+	<th>NetSuite ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,9 +25,10 @@
     <td><%= report.title %></td>
     <td><%= report.excerpt %></td>
     <td><%= report.price %></td>
+	<td><%= report.ns_id %></td>
     <td><%= link_to 'Show', report %></td>
     <td><%= link_to 'Edit', edit_report_path(report) %></td>
-    <td><%= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', report, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

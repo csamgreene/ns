@@ -1,3 +1,15 @@
+<!-- This section is for testing purposes only. It should be removed later when testing is completed-->
+<%if ! @ns_id.nil?%>
+	<script src='http://shopping.netsuite.com/app/site/query/getitemname.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
+	</br>
+	<script src='http://shopping.netsuite.com/app/site/query/getitemprice.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
+	</br>
+	<script src='http://shopping.netsuite.com/app/site/query/getitemsdescr.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
+	</br></br>
+	</hr>
+<%end%>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,9 +23,35 @@
 </p>
 
 <p>
-  <b>Price:</b>
+  <b>Lux Database Price:</b>
   <%= @report.price %>
+  <%if ! @ns_id.nil?%>
+	  </br>
+	  <b>NetSuite Price:</b>
+	  <script src='http://shopping.netsuite.com/app/site/query/getitemprice.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
+  <%end%>
 </p>
+
+<%if ! @ns_id.nil?%>
+	<p>
+	  <b>NetSuite ID:</b>
+	  <%= @report.ns_id %>
+	</p>
+
+
+		
+		
+		<form name=form36 action='http://shopping.netsuite.com/app/site/query/additemtocart.nl?c=749423&n=1&ext=T' method=post><input type='hidden' name='buyid' value='36'><input type='hidden' name='c' value='749423'><input type='hidden' name='n' value='1'><td class='text'><input name='add' id='add' size=4 value=1></td><td class='text'><input type=submit border='0' value='Add to Cart' alt='Add to Cart'></td></form>
+		
+		
+		
+		
+		<td class='text'>
+			<a href="http://shopping.netsuite.com/app/site/query/checkoutredirect.nl?c=749423&n=1&ext=T" target="_blank">Checkout</a>
+		</td>
+	</form>
+<%end%>
+
 
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
