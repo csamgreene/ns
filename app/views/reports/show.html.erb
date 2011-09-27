@@ -1,18 +1,8 @@
 <!-- This section is for testing purposes only. It should be removed later when testing is completed-->
 <%if ! @ns_id.nil?%>
 <b>NetSuite Title:</b>
-	<script src='http://shopping.sandbox.netsuite.com/app/site/query/getitemname.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
-	</br>
-	<b>NetSuite Price:</b>
-	<script src='http://shopping.sandbox.netsuite.com/app/site/query/getitemprice.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
-	</br>
-	<b>NetSuite Description:</b>
-	<script src='http://shopping.sandbox.netsuite.com/app/site/query/getitemsdescr.nl?c=749423&n=1&id=<%=@ns_id%>'></script>
-	</br></br>
-	</hr>
+<%=render 'Netsuite/netsuite_data' %>
 <%end%>
-
-
 
 
 <b><u>Lux data</u></b></br>
@@ -46,6 +36,10 @@
 </br>
 		<td class='text'>
 			<a href="http://shopping.sandbox.netsuite.com/app/site/query/checkoutredirect.nl?c=749423&n=1&ext=T" target="_blank">Checkout</a>
+			</br>
+			Rails coded URL:
+			<%= link_to "Checkout", "http://shopping.sandbox.netsuite.com/app/site/query/checkoutredirect.nl?c=749423&n=1&ext=T", :target => "_blank"
+%>
 		</td>
 	</form>
 <%end%>
